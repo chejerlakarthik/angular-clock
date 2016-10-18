@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock App</title>
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript">
+        'use strict';
+        angular.module('clock', []).controller('mainCtrl', function ($scope, $interval) {
+            $scope.time = new Date();
+            $scope.updateTime = function () {
+                $scope.time = new Date();
+            }
+            $interval(function () {
+                $scope.updateTime();
+            }, 1000);
+        });
+    </script>
+</head>
+
+<body ng-app="clock">
+    <div ng-controller="mainCtrl">
+        <p> Current Time is : {{ time | date:'mediumTime' }}</p>
+    </div>
+</body>
+
+</html>
