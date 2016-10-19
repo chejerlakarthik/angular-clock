@@ -12,18 +12,27 @@
             $scope.time = new Date();
             $scope.updateTime = function () {
                 $scope.time = new Date();
+                if ($scope.time.getSeconds() % 2 == 0) {
+                    console.log("Even minutes");
+                    $scope.imageUrl = "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==";
+                }
+                else {
+                    $scope.imageUrl = "https://rukminim1.flixcart.com/image/832/832/tablet/v/n/6/apple-32-gb-ipad-mini-with-retina-display-and-wi-fi-original-imadr69bgvfkkhhx.jpeg?q=70";
+                }
             }
             $interval(function () {
                 $scope.updateTime();
             }, 1000);
+            $scope.imageUrl = "https://rukminim1.flixcart.com/image/832/832/tablet/v/n/6/apple-32-gb-ipad-mini-with-retina-display-and-wi-fi-original-imadr69bgvfkkhhx.jpeg?q=70";
         });
     </script>
 </head>
 
 <body ng-app="clock">
     <div ng-controller="mainCtrl">
-        <p> Current Time is : {{ time | date:'mediumTime' }}</p>
-    </div>
+        <div style="float:right">
+            <p> Current Time is : {{ time | date:'mediumTime' }}</p>
+        </div> <img ng-src="{{imageUrl}}" /> </div>
 </body>
 
 </html>
